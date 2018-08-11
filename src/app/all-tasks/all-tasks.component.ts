@@ -28,6 +28,9 @@ export class AllTasksComponent implements OnInit {
     for (let i = 0; i < this.lists.length; i++) {
       this.lists[i].showDelete = false;
       this.lists[i].addTask = false;
+      for (let item of this.lists[i].tasks) {
+        item.editable = false;
+      }
     }
   }
 
@@ -92,9 +95,24 @@ export class AllTasksComponent implements OnInit {
   saveTask(index: number, taskName: string) {
     this.lists[index].tasks.push({
       taskText: taskName,
-      id: this.generateRandomBoardId()
+      id: this.generateRandomBoardId(),
+      editable: false
     });
     this.lists[index].addTask = false;
   }
 
+  updateTask(i: number, j: number, val: string) {
+    this.lists[i].tasks[j].taskText = val;
+    this.cancelTaskEdit(i, j);
+  }
+
+  cancelTaskEdit(i: number, j: number) {
+    setTimeout(() => {
+      this.lists[i].tasks[j].editable = false
+    }, 100);
+  }
+
+  deleteTask(i: number, j: number) {
+    this.lists[i].tasks.splice(j, 1);
+  }
 }

@@ -18,8 +18,16 @@
                   </div>
                 </div>
                 <div class="tasks">
-                  <div class="task" *ngFor="let task of item.tasks; let j = index">
-                    <p>{{task.taskText}}</p>
+                  <div class="task" *ngFor="let task of item.tasks; let j = index" (click)="task.editable = true" [ngClass]="{'p-0': task.editable}">
+                    <p *ngIf="!task.editable">{{task.taskText}}</p>
+                    <div class="task-editable" *ngIf="task.editable">
+                      <textarea class="form-control f-13" placeholder="Add task..." #updateTaskText>{{task.taskText}}</textarea>
+                      <div class="btns-box mt-2 pr-2 pl-1">
+                        <button class="btn btn-default btn-small btn-danger float-left mt-1" (click)="deleteTask(i, j)">Delete</button>
+                        <button class="btn btn-default btn-small btn-primary float-right mt-1" (click)="updateTask(i, j, updateTaskText.value)">Save</button>
+                        <button class="btn btn-default btn-small float-right mt-1" (click)="cancelTaskEdit(i, j)">Cancel</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="adding-task" *ngIf="item.addTask">

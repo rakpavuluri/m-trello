@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
           addTask: false,
           tasks: [{
             taskText: 'hey',
-            id: 'task_1'
+            id: 'task_1',
+            editable: false
           }]
         },
         {
@@ -37,7 +38,8 @@ export class AppComponent implements OnInit {
           addTask: false,
           tasks: [{
             taskText: 'hey',
-            id: 'task_2'
+            id: 'task_2',
+            editable: false
           }]
         }]
       });
