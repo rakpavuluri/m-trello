@@ -1,0 +1,19 @@
+.nav {
+    background-color: #006A4C;
+    height: 44px;
+    .nav-item {
+        a {
+            color: #CCE1DB;
+            &.boards-btn {
+                position: relative;
+                z-index: 9;
+                background: rgba(28, 201, 149, 0.4);
+                padding: 8px 13px;
+                border-radius: 3px;
+                height: 36px;
+                margin-top: 4px;
+                line-height: 1.3;
+            }
+        }
+    }
+}

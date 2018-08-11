@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+.f-13 {
+    font-size: 13px !important;
+}
+
+.f-20 {
+    font-size: 20px !important;
+}
+
+.btn {
+    height: 32px;
+    font-size: 12px;
+    &.btn-default {
+        margin-top: 10px;
+        float: right;
+    }
+    &.btn-primary {
+        background: #11674d;
+        color: #fff;
+        box-shadow: none;
+        margin-left: 10px;
+        border-color: transparent;
+    }
+}
